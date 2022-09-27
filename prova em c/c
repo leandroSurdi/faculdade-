@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct aluno{
+    char nome[30];
+    int idade;
+    char matricula[15];
+    char endereco[100];
+    int mensalidade;
+    
+};
+int main()
+{
+    int qtde;
+    printf("Quantos alunos a na disciplina?\n");
+    scanf("%d",&qtde);
+    struct aluno *estr;
+    estr= calloc(qtde,sizeof(struct aluno));
+    int soma=0;
+    
+    for (int i=1;i<=qtde;i++){
+        printf ("Qual o nome do aluno?\n");
+            scanf("%s",estr[i-1].nome);
+         printf ("Qual a idade do aluno?\n");
+             scanf("%d",&estr[i-1].idade);
+         printf ("Qual a matricula do aluno?\n");
+            scanf("%s",estr[i-1].matricula);
+         printf ("Qual o endereço do aluno?\n");
+         
+            scanf("%s",estr[i-1].endereco);
+         printf ("Qual o valor da mensalidade do aluno?\n");
+            scanf("%d",&estr[i-1].mensalidade);
+            soma +=estr[i-1].mensalidade;
+            printf(" O valor medio das mensalidade fica:$%d\n",soma/qtde);
+    }
+    for(int i=1;i<=qtde;i++){
+        printf("==Aluno==%d\n",i);
+        printf("nome:%s\nidade:%d\nmatricula:%s\nendereco:%s\nmensalidade:%d\n",estr[i-1].nome,estr[i-1].idade,estr[i-1].matricula,estr[i-1].endereco,estr[i-1].mensalidade);
+    }
+    free(estr);
+    return 0;
+}
